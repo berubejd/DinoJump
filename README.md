@@ -6,13 +6,13 @@ This is a single level platformer built in Godot leveraging some amount of GDScr
 ## Screenshot
 
 ### Game Start
-![Landing Screenshot](Images/Start.png?raw-true)
+![Landing Screenshot](Images/Start.PNG?raw-true)
 
 ### A Few Enemies
-![Enemies](Images/Sleeping.png?raw-true)
+![Enemies](Images/Sleeping.PNG?raw-true)
 
 ### A Flying Enemy, as well
-![Ouch](Images/Ouch.png?raw-true)
+![Ouch](Images/Ouch.PNG?raw-true)
 
 ## Attribution
 
