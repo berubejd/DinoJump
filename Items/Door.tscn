@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sprites/Other/Opening (46x56).png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Other/spark_particle2.png" type="Texture" id=2]
+[ext_resource path="res://Items/Door.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.9202, 27.6621 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 46, 56 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 46, 0, 46, 56 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 92, 0, 46, 56 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 138, 0, 46, 56 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 184, 0, 46, 56 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": false,
+"name": "Open",
+"speed": 5.0
+} ]
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 24.05
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 6.05
+initial_velocity_random = 0.74
+orbit_velocity = 0.5
+orbit_velocity_random = 0.76
+linear_accel = 2.48
+linear_accel_random = 0.83
+radial_accel = 9.94
+tangential_accel = 3.73
+angle = 53.7
+scale = 6.21
+
+[node name="Door" type="Node2D"]
+scale = Vector2( 0.6, 0.6 )
+script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+animation = "Open"
+
+[node name="Particles2D" type="Particles2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.92549 )
+z_index = -1
+explosiveness = 0.64
+randomness = 0.65
+process_material = SubResource( 8 )
+texture = ExtResource( 2 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.380392 )
+z_index = 2
+explosiveness = 0.64
+randomness = 0.65
+process_material = SubResource( 8 )
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -1,0 +1,177 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Sprites/Hazards/Spikes/SpikedTurtle-low.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 22, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 44, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 66, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 88, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 110, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 132, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 154, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 176, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 198, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 220, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 242, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 264, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 286, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 22, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 44, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 66, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 88, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 1 )
+region = Rect2( 110, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 132, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 154, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 176, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 198, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 220, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 242, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 264, 0, 22, 13 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 286, 0, 22, 13 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 7.99282, 4.99265 )
+
+[sub_resource type="CircleShape2D" id=31]
+radius = 65.3224
+
+[node name="SpikedTurtle" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+speed = 10
+walking_direction = -1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 29 )
+animation = "Idle"
+frame = 8
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0126195, 2.02474 )
+shape = SubResource( 30 )
+
+[node name="Aggro" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
+position = Vector2( 0.427185, 5.55344 )
+shape = SubResource( 31 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="HitBox"]
+position = Vector2( 0.6, 5.9972 )
+polygon = PoolVector2Array( -7.62945, 0.903736, -11.422, -1.25554, -8.68012, -10.0158, -0.649961, -12.0421, 7.3802, -9.97826, 10.76, -1.1878, 7.45525, 1.01631 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 9.15417, 0.0741024 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 2
+[connection signal="body_entered" from="Aggro" to="." method="_on_Aggro_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

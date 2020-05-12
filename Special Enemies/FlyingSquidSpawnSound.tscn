@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sound/sfx_exp_shortest_soft9.wav" type="AudioStream" id=1]
+
+[node name="FlyingSquidSpawnSound" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
+[connection signal="finished" from="." to="." method="queue_free"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Sprites/Background/stone.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/PixelFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Sprites/Dinos/DinoSprites - mort.png" type="Texture" id=4]
+[ext_resource path="res://Levels/GameOver.gd" type="Script" id=5]
+[ext_resource path="res://Sound/Pixel Guy - Game Over Jingles Pack - 32 Press the Button.ogg" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=8]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 120, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 144, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 168, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 216, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="LoseGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 60.0
+margin_top = 49.0
+margin_right = 267.0
+margin_bottom = 130.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 207.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 3 )
+text = "Game over"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 207.0
+margin_bottom = 81.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 55.0
+margin_right = 124.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 8 )
+text = "Try Again?
+ "
+
+[node name="RestartButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 128.0
+margin_right = 152.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 24, 15 )
+expand = true
+stretch_mode = 3
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CenterContainer/VBoxContainer/HBoxContainer/RestartButton"]
+position = Vector2( 12, 5 )
+frames = SubResource( 9 )
+frame = 5
+playing = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pixel Guy - Game Over Jingles Pack - 32 Press the Button.ogg-6daae7f4c5e9ff5445ae8b4c0d245075.oggstr"
+
+[deps]
+
+source_file="res://Sound/Pixel Guy - Game Over Jingles Pack - 32 Press the Button.ogg"
+dest_files=[ "res://.import/Pixel Guy - Game Over Jingles Pack - 32 Press the Button.ogg-6daae7f4c5e9ff5445ae8b4c0d245075.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
